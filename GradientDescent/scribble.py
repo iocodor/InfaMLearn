@@ -7,13 +7,8 @@ tx = [t0,t1]
 tx = np.array(tx).reshape(2,1)
 z = pow(10,-4)
 
-a = np.array([[1, 2], [3, 4]])
-mu = np.mean(a,axis=0)
-
-print(a,"\n",mu,"\n",np.subtract(a,mu))
-
-
-
+houseSet = np.array([1650,3])
+print(houseSet)
 #print(tx)
 #print(z)
 #print(j_hist)

@@ -15,7 +15,7 @@ def featureNormalization(data, m, n):
     mu = np.mean(data, axis=0)
     sigma = np.std(data, axis=0, ddof=1)
     data = np.divide(np.subtract(data, mu), sigma)
-    return (data)
+    return (data,mu,sigma)
 
 
 # Cost function
@@ -27,34 +27,36 @@ def computeCost(setX, setY, setTheta, sampleSize):
 
 # Gradient descent algorithm
 def gradientDescent(setX, setY, setTheta, sampleSize):
-    alpha = 0.001
-    cnt = 0
+    alpha = 0.01
+    cnt, tn = 0,0
     jHist = []
     jAlpha = []
-    setTAlpha = setTheta
-    # determine max alpha
+    setTAlpha = setTheta.copy()
+    setThetaN = setTheta.copy()
+    #determine max alpha
     while (True):
-        for i in setTAlpha:
-            t0 = setTAlpha[0] - (alpha * (1 / sampleSize) * np.sum(np.multiply(np.subtract(np.dot(setX, setTAlpha), setY), np.array(setX[:, 0]).reshape(97, 1))))
-            t1 = setTAlpha[1] - (alpha * (1 / sampleSize) * np.sum(np.multiply(np.subtract(np.dot(setX, setTAlpha), setY), np.array(setX[:, 1]).reshape(97, 1))))
-            tx = [t0, t1]
-            setTAlpha = np.array(tx).reshape(2, 1)
-            jAlpha.append(computeCost(setX, setY, setTAlpha, sampleSize))
-        alpha *= 3.33
-        if (cnt >= 1 and jAlpha[cnt - 1] >= jAlpha[cnt]):
+        alpha *=3
+        for i in setTheta:
+            setTAlpha[tn] = setThetaN[tn] - (alpha * (1 / sampleSize) * np.sum(np.multiply(np.subtract(np.dot(setX, setThetaN), setY), np.array(setX[:, tn]).reshape(sampleSize, 1))))
+            tn += 1
+        tn = 0
+        setThetaN = setTAlpha.copy()
+        jAlpha.append(computeCost(setX, setY, setTAlpha, sampleSize))
+        if (cnt >= 1 and jAlpha[cnt - 1] <= jAlpha[cnt]):
+            alpha /=3
             print("Alpha Calculated as: ", alpha)
             break
         cnt += 1
-    # reset counter variable
-    cnt = 0
-    #
+    #reset counter variable
+    cnt,tn = 0,0
     while (True):
-        t0 = setTheta[0] - (alpha * (1 / sampleSize) * np.sum(np.multiply(np.subtract(np.dot(setX, setTheta), setY), np.array(setX[:, 0]).reshape(97, 1))))
-        t1 = setTheta[1] - (alpha * (1 / sampleSize) * np.sum(np.multiply(np.subtract(np.dot(setX, setTheta), setY), np.array(setX[:, 1]).reshape(97, 1))))
-        tx = [t0, t1]
-        setTheta = np.array(tx).reshape(2, 1)
+        for i in setTheta:
+            setThetaN[tn] = setTheta[tn] - (alpha * (1 / sampleSize) * np.sum(np.multiply(np.subtract(np.dot(setX, setTheta), setY), np.array(setX[:, tn]).reshape(sampleSize, 1))))
+            tn +=1
+        tn = 0
+        setTheta = setThetaN.copy()
         jHist.append(computeCost(setX, setY, setTheta, sampleSize))
-        if (cnt > 2 and jHist[cnt - 1] - jHist[cnt] < pow(10, -8)):
+        if (cnt >2 and jHist[cnt - 1] - jHist[cnt] < pow(10, -9)):
             print("Number of Iterations: ", cnt)
             break
         cnt += 1
@@ -71,13 +73,16 @@ m = s[0]
 n = s[1] - 1
 # Extract the training result set
 metricSet = np.array(data[:, n]).reshape(m, 1)
-# featureSet = np.array(data[:,0:n]).reshape(m,n)
-
-featureSet = featureNormalization(np.array(data[:, 0:n]).reshape(m, n), m, n)
-# Add Ones to the data set (X)
-# featureSet = np.concatenate((np.ones((m, 1), dtype=int), np.array(data[:, 0: n]).reshape((m, n))), axis=1)
+#Scale FeatureSet and Add Ones
+dataSetX,mu,sigma = featureNormalization(np.array(data[:, 0:n]).reshape(m, n), m, n)
+featureSet = np.concatenate((np.ones((m, 1), dtype=float),dataSetX),axis=1)
+#featureSet = np.concatenate((np.ones((m, 1), dtype=float), featureNormalization(np.array(data[:, 0:n]).reshape(m, n), m, n)),axis=1)
 # Theta Starting from 0
-theta = np.zeros((n + 1, 1), dtype=int)
-# loss = computeCost(featureSet, metricSet, theta, m)
-# theta, jHist = gradientDescent(featureSet, metricSet, theta, s[0])
-# print("Theta: ", theta.reshape(1, 2))
+theta = np.zeros((n + 1, 1), dtype=float)
+loss = computeCost(featureSet, metricSet, theta, m)
+theta, jHist = gradientDescent(featureSet, metricSet, theta, m)
+print("Theta: ", theta)
+houseSet = np.divide(np.subtract(np.array([1650,3]),mu),sigma).reshape(1,2)
+houseSet = np.concatenate((np.ones((1,1),dtype = int),houseSet),axis = 1)
+print ("Predicted Price for house with area 1650 sq.ft and 3 Bedrooms is ",np.dot(houseSet,theta))
+
