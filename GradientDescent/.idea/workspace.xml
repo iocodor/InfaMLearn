@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfcdce3f-5cfd-4b72-af0c-587d1511c690" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GradientDescentUnivariate.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scribble.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GradientDescentMultivariate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradientDescentUnivariate.py" afterPath="$PROJECT_DIR$/GradientDescentUnivariate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scribble.py" afterPath="$PROJECT_DIR$/scribble.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Octave/ex1/computeCostMulti.m" afterPath="$PROJECT_DIR$/../Octave/ex1/computeCostMulti.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Octave/ex1/ex1_multi.m" afterPath="$PROJECT_DIR$/../Octave/ex1/ex1_multi.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Octave/ex1/featureNormalize.m" afterPath="$PROJECT_DIR$/../Octave/ex1/featureNormalize.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Octave/ex1/gradientDescentMulti.m" afterPath="$PROJECT_DIR$/../Octave/ex1/gradientDescentMulti.m" />
     </list>
     <ignored path="GradientDescent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,7 +29,28 @@
     <favorites_list name="GradientDescent" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="GradientDescentMultivariate.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GradientDescentMultivariate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="386">
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scribble.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scribble.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,8 +66,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scribble.py" />
         <option value="$PROJECT_DIR$/GradientDescentUnivariate.py" />
+        <option value="$PROJECT_DIR$/scribble.py" />
+        <option value="$PROJECT_DIR$/GradientDescentMultivariate.py" />
       </list>
     </option>
   </component>
@@ -76,7 +103,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -97,23 +133,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.GradientDescentUnivariate">
+  <component name="RunManager" selected="Python.GradientDescentMultivariate">
     <configuration default="false" name="GradientDescentUnivariate" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,6 +171,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="GradientDescent" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scribble.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradientDescentMultivariate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GradientDescent" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GradientDescentMultivariate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -282,14 +326,16 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.GradientDescentUnivariate" />
       <item index="1" class="java.lang.String" itemvalue="Python.scribble" />
+      <item index="2" class="java.lang.String" itemvalue="Python.GradientDescentMultivariate" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.GradientDescentUnivariate" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.GradientDescentMultivariate" />
         <item index="1" class="java.lang.String" itemvalue="Python.scribble" />
+        <item index="2" class="java.lang.String" itemvalue="Python.GradientDescentUnivariate" />
       </list>
     </recent_temporary>
   </component>
@@ -315,10 +361,10 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5083333" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -365,18 +411,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ex1data1.txt" />
-    <entry file="file://$PROJECT_DIR$/scribble.py">
+    <entry file="file://$PROJECT_DIR$/GradientDescentUnivariate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GradientDescentUnivariate.py">
+    <entry file="file://$PROJECT_DIR$/scribble.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradientDescentMultivariate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>

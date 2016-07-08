@@ -1,19 +1,31 @@
 import numpy as np
 
+
 ##################################################
 #
-# Gradient Descent for Single Variable
+# Gradient Descent for Multiple Variables
 #
 #################################################
 
 # Functions required for gradient descent
 
-#Cost function
+# Feature Normalization
+def featureNormalization(data, m, n):
+    cnt = 0
+    mu = np.mean(data, axis=0)
+    sigma = np.std(data, axis=0, ddof=1)
+    data = np.divide(np.subtract(data, mu), sigma)
+    return (data)
+
+
+# Cost function
 def computeCost(setX, setY, setTheta, sampleSize):
     loss = np.sum(np.square(np.subtract(np.dot(setX, setTheta), setY))) / (2 * sampleSize)
+    # loss = np.dot(setX, setTheta)
     return (loss)
 
-#Gradient descent algorithm
+
+# Gradient descent algorithm
 def gradientDescent(setX, setY, setTheta, sampleSize):
     alpha = 0.001
     cnt = 0
@@ -33,7 +45,7 @@ def gradientDescent(setX, setY, setTheta, sampleSize):
             print("Alpha Calculated as: ", alpha)
             break
         cnt += 1
-    #reset counter variable
+    # reset counter variable
     cnt = 0
     #
     while (True):
@@ -50,23 +62,22 @@ def gradientDescent(setX, setY, setTheta, sampleSize):
 
 
 # import data
-data = np.genfromtxt("data//ex1data1.txt", delimiter=",")
-# Stores the shape of matrix in list s,
-# where s[0] is the number of rows or the sample size m,
+data = np.genfromtxt("data//ex1data2.txt", delimiter=",")
+# Stores the shape of matrix in list s,where s[0] is the number of rows or the sample size m,
 s = data.shape
-# Add Ones to the data set (X)
-featureSet = np.concatenate((np.ones((s[0], 1), dtype=int), np.array(data[:, 0]).reshape((s[0], 1))), axis=1)
+# sampleSize
+m = s[0]
+# number of features 0 index
+n = s[1] - 1
 # Extract the training result set
-metricSet = np.array(data[:, 1]).reshape(s[0], 1)
+metricSet = np.array(data[:, n]).reshape(m, 1)
+# featureSet = np.array(data[:,0:n]).reshape(m,n)
+
+featureSet = featureNormalization(np.array(data[:, 0:n]).reshape(m, n), m, n)
+# Add Ones to the data set (X)
+# featureSet = np.concatenate((np.ones((m, 1), dtype=int), np.array(data[:, 0: n]).reshape((m, n))), axis=1)
 # Theta Starting from 0
-theta = np.zeros((2, 1), dtype=int)
-# loss = computeCost(featureSet, metricSet, theta, s[0])
-theta, jHist = gradientDescent(featureSet, metricSet, theta, s[0])
-print("Theta: ", theta.reshape(1, 2))
-# Prediction based on theta for Population sizes of 35,000 and 70,000
-predict1 = np.dot(np.array([1, 3.5]), theta)
-print('For population = 35,000, we predict a profit of \n', predict1 * 10000)
-predict2 = np.dot(np.array([1, 7]), theta)
-print('For population = 70,000, we predict a profit of \n', predict2 * 10000)
-
-
+theta = np.zeros((n + 1, 1), dtype=int)
+# loss = computeCost(featureSet, metricSet, theta, m)
+# theta, jHist = gradientDescent(featureSet, metricSet, theta, s[0])
+# print("Theta: ", theta.reshape(1, 2))
